@@ -45,7 +45,7 @@ class Lora:
             learning_rate=2e-4,
             bf16=True,
             logging_steps=20,
-            output_dir="../outputs",
+            output_dir="./outputs",
             optim="paged_adamw_8bit",
             remove_unused_columns=False,
             num_train_epochs=self.num_train_epochs,
@@ -84,10 +84,10 @@ class Lora:
         trainer.train()
 
         # save model
-        trainer.save_model("outputs")
+        trainer.save_model("./outputs")
 
         # remove checkpoint folder
-        os.system("rm -rf ../outputs/checkpoint-*")
+        os.system("rm -rf ./outputs/checkpoint-*")
 
         # upload lora weights and tokenizer
         print("Training Completed.")

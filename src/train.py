@@ -72,7 +72,7 @@ def main():
 
             # commit the model
             commit_message = hf_api.upload_folder(
-                folder_path="../outputs",
+                folder_path="./outputs",
                 repo_id=hf_repo_name,
                 repo_type="model",
             )
@@ -99,7 +99,7 @@ def main():
         finally:
             # cleanup merged_model and output
             os.system("rm -rf merged_model")
-            os.system("rm -rf ../outputs")
+            os.system("rm -rf ./outputs")
             continue
 
 
