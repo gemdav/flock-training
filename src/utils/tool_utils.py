@@ -32,7 +32,7 @@ def tool_formater(tools: List[Dict[str, Any]]) -> str:
 
             param_text += f"  - {name} ({param.get('type', '')}{required}): {param.get('description', '')}{enum}{items}\n"
 
-        tool_text += f"> Tool Name: {tool["name"]}\nTool Description: {tool.get('description', '')}\nTool Args:\n{param_text}\n"
+        tool_text += f"> Tool Name: {tool['name']}\nTool Description: {tool.get('description', '')}\nTool Args:\n{param_text}\n"
         tool_names.append(tool["name"])
 
     return DEFAULT_TOOL_PROMPT.format(
