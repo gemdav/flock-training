@@ -1,0 +1,45 @@
+QWEN_TEMPLATE = {
+    "system_format": "<|im_start|>system\n{content}<|im_end|>\n",
+    "user_format": "<|im_start|>user\n{content}<|im_end|>\n<|im_start|>assistant\n",
+    "assistant_format": "{content}<|im_end|>\n",
+    "tool_format": "{content}",
+    "function_format": "{content}",
+    "observation_format": "<|im_start|>tool\n{content}<|im_end|>\n<|im_start|>assistant\n",
+    "system": "You are a helpful assistant.",
+}
+
+GEMMA_TEMPLATE = {
+    "system_format": "<bos>",
+    "user_format": "<start_of_turn>user\n{content}<end_of_turn>\n<start_of_turn>model\n",
+    "assistant_format": "{content}<eos>\n",
+    "tool_format": "{content}",
+    "function_format": "{content}",
+    "observation_format": "<start_of_turn>tool\n{content}<end_of_turn>\n<start_of_turn>model\n",
+    "system": None,
+}
+
+MODEL2TEMPLATE = {
+    "Qwen/Qwen1.5-0.5B": QWEN_TEMPLATE,
+    "Qwen/Qwen1.5-1.8B": QWEN_TEMPLATE,
+    "Qwen/Qwen1.5-7B": QWEN_TEMPLATE,
+    "google/gemma-2b": GEMMA_TEMPLATE,
+    "google/gemma-7b": GEMMA_TEMPLATE,
+}
+
+MODEL2SIZE = {
+    "Qwen/Qwen1.5-0.5B": 620_000_000,
+    "Qwen/Qwen1.5-1.8B": 1_840_000_000,
+    "Qwen/Qwen1.5-7B": 7_720_000_000,
+    "google/gemma-2b": 2_510_000_000,
+    "google/gemma-7b": 8_540_000_000,
+}
+
+MODEL2BASE_MODEL = {
+    "Qwen/Qwen1.5-0.5B": "qwen1.5",
+    "Qwen/Qwen1.5-1.8B": "qwen1.5",
+    "Qwen/Qwen1.5-7B": "qwen1.5",
+    "google/gemma-2b": "gemma",
+    "google/gemma-7b": "gemma",
+}
+
+FED_LEDGER_BASE_URL = "https://fed-ledger-prod.flock.io/api/v1"
